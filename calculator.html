@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Calculator</title>
+  <style>
+    .calculator {
+      width: 230px;
+      padding: 15px;
+      margin-left:220px;
+      margin-top:20px;
+      border: 1px solid #ccc;
+      text-align: center;
+      background-color:#4E4C4B;
+      
+    }
+
+   #result{
+      background-color:white;
+      height:20px;
+      width:85%;
+      margin-bottom:7px;
+          }
+
+    input[type="button"] {
+      width: 40px;
+      height: 40px;
+      margin: 5px;
+      color:white;
+      background-color:#3B99E3;
+    }
+  </style>
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="result" disabled>
+    <br>
+    <input type="button" value="1" onclick="appendValue('1')">
+    <input type="button" value="2" onclick="appendValue('2')">
+    <input type="button" value="3" onclick="appendValue('3')">
+    <input type="button" value="+" onclick="appendValue('+')">
+    <br>
+    <input type="button" value="4" onclick="appendValue('4')">
+    <input type="button" value="5" onclick="appendValue('5')">
+    <input type="button" value="6" onclick="appendValue('6')">
+    <input type="button" value="-" onclick="appendValue('-')">
+    <br>
+    <input type="button" value="7" onclick="appendValue('7')">
+    <input type="button" value="8" onclick="appendValue('8')">
+    <input type="button" value="9" onclick="appendValue('9')">
+    <input type="button" value="*" onclick="appendValue('*')">
+    <br>
+    <input type="button" value="0" onclick="appendValue('0')">
+    <input type="button" value="." onclick="appendValue('.')">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="/" onclick="appendValue('/')">
+    
+    <br>
+    <input type="button" value="%" onclick="appendValue('%')">
+    <input type="button" value="C" onclick="clearResult()">
+    
+  </div>
+
+  <script>
+    function appendValue(value) {
+      document.getElementById("result").value += value;
+    }
+
+    function calculate() {
+      try {
+        const result = eval(document.getElementById("result").value);
+        document.getElementById("result").value = result;
+      } catch (error) {
+        document.getElementById("result").value = "Error";
+      }
+    }
+
+    function clearResult() {
+      document.getElementById("result").value = "";
+    }
+  </script>
+</body>
+</html>
